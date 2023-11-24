@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dork</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/main.css" />
     <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
   </head>
   <body id="app" class="bg-[#f3f3f3] select-none overflow-x-hidden">
-    <main @click.right.prevent="console.log('test')" class="w-full flex justify-center">
+    <main class="w-full flex justify-center">
       <section class="p-5 flex flex-col gap-5 my-10">
-        <h1 class="font-bold drop-shadow-sm text-slate-800 text-3xl max-w-[260px]">TODO List Design in Vue</h1>
+        <h1 class="font-bold drop-shadow-sm text-slate-800 text-3xl max-w-[260px]">TODO List Design in Vue & PhP</h1>
         <div class="flex gap-2">
           <input
             @keypress.enter="addTask()"
-            v-model="taskTitleInput"
+            v-model.trim="taskTitleInput"
             type="text"
             placeholder="Task Name..."
             class="p-2 text-slate-600 w-[50%] drop-shadow-md rounded-md focus-visible:outline-none text-sm"
@@ -55,13 +56,12 @@
               trigger="hover"
               colors="primary:#e83a30"
               class="delete-icon"
-              @click.stop="deleteTask(index)"
             >
             </lord-icon>
           </li>
         </ul>
       </section>
     </main>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" async></script>
   </body>
 </html>
