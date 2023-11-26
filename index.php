@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/main.css" />
     <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+    <script src="./js/main.js" async></script>
   </head>
   <body id="app" class="bg-[#f3f3f3] select-none overflow-x-hidden">
     <main class="w-full flex justify-center">
@@ -24,14 +25,14 @@
           />
           <input
             @keypress.enter="addTask()"
-            v-model="taskDescriptionInput"
+            v-model.trim="taskDescriptionInput"
             type="text"
             placeholder="Task Description..."
             class="p-2 text-slate-600 w-[50%] drop-shadow-md rounded-md focus-visible:outline-none text-sm"
           />
         </div>
-        <span class="text-slate-700 text-sm" v-if="errorStatus">Error you must enter at least 3 characters!</span>
-        <span class="text-slate-700 text-sm" v-if="errorStatus2">Error you can enter a maximum of 30 characters</span>
+        <span class="text-slate-700 text-sm" v-if="errorEmptyStatus">Error you must enter at least 3 characters!</span>
+        <span class="text-slate-700 text-sm" v-if="false">Error you can enter a maximum of 30 characters</span>
 
         <button
           @click="addTask()"
@@ -56,12 +57,12 @@
               trigger="hover"
               colors="primary:#e83a30"
               class="delete-icon"
+              @click.stop="deleteTodo(index)"
             >
             </lord-icon>
           </li>
         </ul>
       </section>
     </main>
-    <script src="./js/main.js" async></script>
   </body>
 </html>

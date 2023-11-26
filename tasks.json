@@ -1,6 +1,1 @@
-[
-  { "taskTitle": "PHP", "taskDescription": "backend", "taskStatus": false },
-  { "taskTitle": "JavaScript", "taskDescription": "frontend/backend", "taskStatus": false },
-  { "taskTitle": "HTML", "taskDescription": "frontend", "taskStatus": true },
-  { "taskTitle": "CSS", "taskDescription": "frontend", "taskStatus": true }
-]
+[{"taskTitle":"PHP","taskDescription":"backend","taskStatus":false},{"taskTitle":"JavaScript","taskDescription":"frontend\/backend","taskStatus":false},{"taskTitle":"HTML","taskDescription":"frontend","taskStatus":true},{"taskTitle":"CSS","taskDescription":"frontend","taskStatus":true},{"taskTitle":"Python","taskDescription":"backend","taskStatus":true}]

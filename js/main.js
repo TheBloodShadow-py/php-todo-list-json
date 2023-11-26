@@ -7,8 +7,7 @@ createApp({
     return {
       taskTitleInput: "",
       taskDescriptionInput: "",
-      errorStatus: false,
-      errorStatus2: false,
+      errorEmptyStatus: false,
       tasksList: [],
       axios,
     };
@@ -20,9 +19,11 @@ createApp({
       });
     },
     addTask: function () {
-      if (this.taskTitleInput.length < 1 && this.taskDescriptionInput.length < 1) {
+      if (this.taskTitleInput.length < 3 && this.taskDescriptionInput.length < 3) {
+        this.errorEmptyStatus = true;
         return;
       }
+      this.errorEmptyStatus = false;
       const data = {
         todo_title: this.taskTitleInput,
         todo_description: this.taskDescriptionInput,
@@ -35,7 +36,36 @@ createApp({
           },
         })
         .then((resp) => {
-          console.log(resp);
+          this.tasksList = resp.data;
+        });
+    },
+    changeStatus: function (index) {
+      const data = {
+        change_task_index: index,
+      };
+
+      this.axios
+        .post("./changestatus.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((resp) => {
+          this.tasksList = resp.data;
+        });
+    },
+    deleteTodo: function (index) {
+      const data = {
+        delete_task_index: index,
+      };
+
+      this.axios
+        .post("./deletetodo.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((resp) => {
           this.tasksList = resp.data;
         });
     },
